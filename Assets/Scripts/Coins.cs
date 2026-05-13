@@ -8,6 +8,12 @@ public class Coins : MonoBehaviour
 
     [SerializeField] private Text coinsText;
 
+
+    public void Start()
+    {
+        UpdateUI();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "CoinsTag")
@@ -16,5 +22,24 @@ public class Coins : MonoBehaviour
             coinsText.text = coins.ToString();
             Destroy(other.gameObject);
         }
+    }
+
+    public bool SpendCoins(int amount)
+    {
+        if (coins < amount)
+        {
+            Debug.Log("Not enough money");
+            return false;
+        }
+
+        coins -= amount;
+        UpdateUI();
+
+        return true;
+    }
+
+    private void UpdateUI()
+    {
+        coinsText.text = coins.ToString();
     }
 }

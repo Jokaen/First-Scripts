@@ -18,6 +18,10 @@ public class Items : MonoBehaviour
     [SerializeField] private GameObject itemShieldSwordUser;
     [SerializeField] private GameObject itemShieldSwordOnField;
 
+    [Header("Shop")]
+    [SerializeField] private GameObject enterShop;
+    //[SerializeField] private GameObject itemShieldSwordOnField;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("SpearTag"))
@@ -42,6 +46,11 @@ public class Items : MonoBehaviour
         {
             itemShieldSwordUser.SetActive(true);
             itemShieldSwordOnField.SetActive(false);
+        }
+
+        if (other.CompareTag("ShopTag"))
+        {
+            enterShop.SetActive(true);
         }
     }
 }

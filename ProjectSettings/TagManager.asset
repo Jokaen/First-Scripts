@@ -10,6 +10,7 @@ TagManager:
   - BowTag
   - ShortSwordTag
   - ShieldTag
+  - ShopTag
   layers:
   - Default
   - TransparentFX
